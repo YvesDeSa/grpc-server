@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+service OfferService {
+  rpc GetOffers (OfferRequest) returns (OfferResponse);
+}
+
+message OfferRequest {
+  int32 limit = 1; // Número máximo de ofertas
+}
+
+message Offer {
+  string id = 1;
+  string title = 2;
+  string image = 3;
+  double price = 4;
+}
+
+message OfferResponse {
+  repeated Offer offers = 1;
+}
